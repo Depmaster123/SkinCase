@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открытие кейсов - Скины за деньги</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .header {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-list a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .nav-list a:hover {
+            text-decoration: underline;
+        }
+
+        .balance {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .balance span {
+            font-size: 18px;
+        }
+
+        .balance button {
+            padding: 10px 20px;
+            background-color: #ff4b4b;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .balance button:hover {
+            background-color: #e63946;
+        }
+
+        .hero-section {
+            background: url('https://www.example.com/hero-background.jpg') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-section p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #00b894;
+            color: #fff;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #009874;
+        }
+
+        .case-section {
+            padding: 50px 0;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .case-section h2 {
+            margin-bottom: 40px;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .cases {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .case {
+            background-color: #eee;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 22%;
+            margin: 10px 0;
+        }
+
+        .case img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .case h3 {
+            margin: 15px 0;
+            font-size: 24px;
+        }
+
+        .case p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .case button {
+            padding: 10px 20px;
+            background-color: #00b894;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .case button:hover {
+            background-color: #009874;
+        }
+
+        .footer {
+            background-color: #222;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">SkinCase</h1>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#cases">Кейсы</a></li>
+                    <li><a href="inventory.html">Инвентарь</a></li>
+                </ul>
+            </nav>
+            <div class="balance">
+                <span>Баланс: <span id="balance">1000</span>₽</span>
+                <button onclick="addFunds()">Пополнить</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+	<font color = black>
+        <h1>Открывай кейсы и выбивай топовые скины!</h1>
+        <p>Выбирай интересные кейсы, открывай их и добавляй новые скины в свой инвентарь.</p>
+		</font>
+        <a href="#cases" class="cta-button">Посмотреть кейсы</a>
+    </section>
+
+    <section class="case-section" id="cases">
+        <div class="container">
+            <h2>Попробуй свои силы в наших кейсах!</h2>
+            <div class="cases">
+                <div class="case">
+                    <img src="https://pub-5f12f7508ff04ae5925853dee0438460.r2.dev/data/csgo/resource/flash/econ/weapon_cases/crate_community_33_png.png" alt="Кейс Киловатт">
+                    <h3>Кейс Киловатт</h3>
+                    <p>Цена: 65₽</p>
+                    <button onclick="openCase('kilowatt.html', 65)">Открыть</button>
+                </div>
+                <div class="case">
+                    <img src="https://pub-5f12f7508ff04ae5925853dee0438460.r2.dev/data/csgo/resource/flash/econ/weapon_cases/crate_community_32.png" alt="Кейс Революция">
+                    <h3>Кейс Революция</h3>
+                    <p>Цена: 23₽</p>
+                    <button onclick="openCase('revolution.html', 23)">Открыть</button>
+                </div>
+                <div class="case">
+                    <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFQwnfCcJmxDv9rhwIHZwqP3a-uGwz9Xv8F0j-qQrI3xiVLkrxVuZW-mJoWLMlhpWhFkc9M" alt="Кейс Грёзы и Кошмары">
+                    <h3>Кейс Грёзы и Кошмары</h3>
+                    <p>Цена: 93₽</p>
+                    <button onclick="openCase('dreams.html', 93)">Открыть</button>
+                </div>
+                <div class="case">
+                    <img src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFUynfWaI25G6Ijkl9iPw_SnNrjXw2oBu8cj3b2Qo4_33QbnrUdlYD37ddCLMlhpvs0XIz0" alt="Кейс Призма">
+                    <h3>Кейс Призма</h3>
+                    <p>Цена: 44₽</p>
+                    <button onclick="openCase('prisma.html', 44)">Открыть</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 SkinCase. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            const savedBalance = localStorage.getItem('balance');
+            if (savedBalance !== null) {
+                document.getElementById('balance').innerText = savedBalance;
+            }
+        };
+
+        function saveBalance(balance) {
+            localStorage.setItem('balance', balance);
+        }
+
+        function openCase(url, casePrice) {
+            const balanceElement = document.getElementById('balance');
+            const balance = parseInt(balanceElement.innerText);
+
+            if (balance >= casePrice) {
+                const newBalance = balance - casePrice;
+                balanceElement.innerText = newBalance;
+                saveBalance(newBalance);
+                window.location.href = url;
+            } else {
+                alert('Ты Нищий бомж, иди пополни баланс!');
+            }
+        }
+
+        function addFunds() {
+            const additionalFunds = prompt('Введите сумму для пополнения:');
+            if (additionalFunds !== null && !isNaN(additionalFunds) && additionalFunds > 0) {
+                const balanceElement = document.getElementById('balance');
+                const currentBalance = parseInt(balanceElement.innerText);
+                const newBalance = currentBalance + parseInt(additionalFunds);
+                balanceElement.innerText = newBalance;
+                saveBalance(newBalance);
+            } else {
+                alert('Введите корректную сумму.');
+            }
+        }
+    </script>
+</body>
+</html>

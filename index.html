@@ -189,11 +189,15 @@
                     <li><a href="#">Главная</a></li>
                     <li><a href="#cases">Кейсы</a></li>
                     <li><a href="inventory.html">Инвентарь</a></li>
+					<li><a href="roulette.html">Рулетка</a></li>
+					<li><a href="clicker.html">Кликер</a></li>
                 </ul>
             </nav>
             <div class="balance">
                 <span>Баланс: <span id="balance">1000</span>₽</span>
-                <button onclick="addFunds()">Пополнить</button>
+                <form action="add-funds.html" target="_blank">
+				<button>Пополнить</button>
+                <button onclick="resetBalance()">Обнулить</button>
             </div>
         </div>
     </header>
@@ -208,32 +212,72 @@
 
     <section class="case-section" id="cases">
         <div class="container">
-            <h2>Попробуй свои силы в наших кейсах!</h2>
             <div class="cases">
                 <div class="case">
                     <img src="https://pub-5f12f7508ff04ae5925853dee0438460.r2.dev/data/csgo/resource/flash/econ/weapon_cases/crate_community_33_png.png" alt="Кейс Киловатт">
                     <h3>Кейс Киловатт</h3>
-                    <p>Цена: 65₽</p>
                     <button onclick="openCase('kilowatt.html', 65)">Открыть</button>
+					<p>
+					</p>
+					<p>Цена: 65₽</p>
                 </div>
                 <div class="case">
                     <img src="https://pub-5f12f7508ff04ae5925853dee0438460.r2.dev/data/csgo/resource/flash/econ/weapon_cases/crate_community_32.png" alt="Кейс Революция">
                     <h3>Кейс Революция</h3>
-                    <p>Цена: 23₽</p>
                     <button onclick="openCase('revolution.html', 23)">Открыть</button>
+					<p>
+					</p>
+					<p>Цена: 23₽</p>
                 </div>
                 <div class="case">
                     <img src="https://community.cloudflare.steamstatic.com/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFQwnfCcJmxDv9rhwIHZwqP3a-uGwz9Xv8F0j-qQrI3xiVLkrxVuZW-mJoWLMlhpWhFkc9M" alt="Кейс Грёзы и Кошмары">
-                    <h3>Кейс Грёзы и Кошмары</h3>
-                    <p>Цена: 93₽</p>
+                    <h3>Кейс Грёзы</h3>
                     <button onclick="openCase('dreams.html', 93)">Открыть</button>
+					<p>
+					</p>
+					<p>Цена: 93₽</p>
                 </div>
                 <div class="case">
                     <img src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXU5A1PIYQNqhpOSV-fRPasw8rsUFJ5KBFZv668FFUynfWaI25G6Ijkl9iPw_SnNrjXw2oBu8cj3b2Qo4_33QbnrUdlYD37ddCLMlhpvs0XIz0" alt="Кейс Призма">
                     <h3>Кейс Призма</h3>
-                    <p>Цена: 44₽</p>
                     <button onclick="openCase('prisma.html', 44)">Открыть</button>
+					<p>
+					</p>
+					<p>Цена: 44₽</p>
                 </div>
+				<div class="case">
+                    <img src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf0ebcZThQ6tCvq4GGqPD1PrbQqW9e-NV9j_v-5YT0m1HglB81NDG3OoPDdwc4YViC-QW5lb_v1pC56pTOynprvHZ35n_YzEC3iEtEOOJqgaSACQLJ2iXmey0" alt="Ножевой Кейс">
+                    <h3>Кейс Бабочка</h3>
+                    <button onclick="openCase('butterfly.html', 5000)">Открыть</button>
+					<p>
+					</p>
+					<p>Цена: 5000₽</p>
+                </div>
+				<div class="case">
+                    <img src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf2PLacDBA5ciJh5C0g_bkNoTEhGlQ5vp9g-7J4cLx2wKw-hA6a2j7JoXEJgY6Z1uB_lPol-2-jcK17pyYnyRnsyEitHjegVXp1i87ARAZ" alt="Ножевой Кейс">
+                    <h3>Кейс Керамбит</h3>
+                    <button onclick="openCase('kerambit.html', 5000)">Открыть</button>
+					<p>
+					</p>
+					<p>Цена: 5000₽</p>
+                </div>
+				<div class="case">
+                    <img src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJf3qr3czxb49KzgL-KmcjgOrzUhFRe-sR_jez--YXygED6_0o4ZjildoDBdVA_ZguC-gO9yeq90Je4vZuYwHdguSgm5H7am0TkhAYMMLKzxtQfiA" alt="Ножевой Кейс">
+                    <h3>Кейс Байонетт</h3>
+                    <button onclick="openCase('bayonett.html', 5000)">Открыть</button>
+					<p>
+					</p>
+					<p>Цена: 5000₽</p>
+                </div>
+				<div class="case">
+                    <img src="https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJfwOfBfThW-NOJh4-0h-LmI7fUqWdY781lteXA54vwxga1_EJkMTz2IIWRIwNoN1mC-AO_kOy7h5G97cjMmiFguiAh5SvaykOpwUYbOly5x_c" alt="Ножевой Кейс">
+                    <h3>Кейс Стилетто</h3>
+                    <button onclick="openCase('stiletto.html', 5000)">Открыть</button>
+					<p>
+					</p>
+					<p>Цена: 5000₽</p>
+                </div>
+				
             </div>
         </div>
     </section>
@@ -270,16 +314,11 @@
             }
         }
 
-        function addFunds() {
-            const additionalFunds = prompt('Введите сумму для пополнения:');
-            if (additionalFunds !== null && !isNaN(additionalFunds) && additionalFunds > 0) {
+        function resetBalance() {
+            if (confirm('Вы уверены, что хотите обнулить баланс?')) {
                 const balanceElement = document.getElementById('balance');
-                const currentBalance = parseInt(balanceElement.innerText);
-                const newBalance = currentBalance + parseInt(additionalFunds);
-                balanceElement.innerText = newBalance;
-                saveBalance(newBalance);
-            } else {
-                alert('Введите корректную сумму.');
+                balanceElement.innerText = '0';
+                saveBalance(0);
             }
         }
     </script>

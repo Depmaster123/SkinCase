@@ -88,21 +88,37 @@
             font-size: 18px;
         }
 
-        .item .delete-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ff4d4d;
-            border: none;
-            color: #fff;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .item p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .item .delete-button,
+        .item .sell-button {
+		position: absolute;
+		bottom: 10px;
+		left: 10px;
+		width: 100%;
+		height: auto;
+		background-color: #00b894;
+		border-radius: 5px;
+		padding: 10px 0;
+		font-size: 16px;
+		margin-top: 10px;
+}
+
+        .item .sell-button {
+            top: unset;
+            right: unset;
+            bottom: 10px;
+            left: 10px;
+            width: 100%;
+            height: auto;
+            background-color: #00b894;
+            border-radius: 5px;
+            padding: 10px 0;
+            font-size: 16px;
         }
 
         .footer {
@@ -110,6 +126,21 @@
             color: #fff;
             padding: 20px 0;
             text-align: center;
+        }
+
+        .balance-container {
+            text-align: right;
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .balance {
+            display: inline-block;
+            background-color: #00b894;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #fff;
         }
     </style>
 </head>
@@ -128,6 +159,9 @@
 
     <section class="inventory-section">
         <div class="container">
+            <div class="balance-container">
+                Баланс: <span id="balance" class="balance">0</span> ₽
+            </div>
             <h2>Ваш инвентарь</h2>
             <div class="inventory" id="inventory">
             </div>
@@ -141,6 +175,18 @@
     </footer>
 
     <script>
+        // Загрузка баланса из localStorage
+        function loadBalance() {
+            const balance = JSON.parse(localStorage.getItem('balance')) || 0;
+            document.getElementById('balance').textContent = balance + ' ₽';
+        }
+
+        // Сохранение баланса в localStorage
+        function saveBalance(newBalance) {
+            localStorage.setItem('balance', JSON.stringify(newBalance));
+            loadBalance();
+        }
+
         function loadInventory() {
             const inventory = JSON.parse(localStorage.getItem('inventory')) || [];
             const inventoryContainer = document.getElementById('inventory');
@@ -152,27 +198,58 @@
                 itemElement.innerHTML = `
                     <img src="${item.image}" alt="${item.name}">
                     <h3>${item.name}</h3>
+                    <p>Цена: ${item.price} ₽</p>
                     <button class="delete-button" data-index="${index}">✖</button>
+                    <button class="sell-button" data-index="${index}">Продать за ${item.price} ₽</button>
                 `;
                 inventoryContainer.appendChild(itemElement);
             });
 
+            // Обработчики для кнопок удаления и продажи
             document.querySelectorAll('.delete-button').forEach(button => {
                 button.addEventListener('click', () => {
                     const index = button.getAttribute('data-index');
                     removeSkin(index);
                 });
             });
+
+            document.querySelectorAll('.sell-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const index = button.getAttribute('data-index');
+                    sellSkin(index);
+                });
+            });
         }
 
         function removeSkin(index) {
             const inventory = JSON.parse(localStorage.getItem('inventory')) || [];
-            inventory.splice(index, 1);
+            inventory.splice(index, 1); // Удаление скина из инвентаря
             localStorage.setItem('inventory', JSON.stringify(inventory));
             loadInventory();
         }
 
-        window.onload = loadInventory;
+        // Продажа скина с индивидуальной ценой
+        function sellSkin(index) {
+            const inventory = JSON.parse(localStorage.getItem('inventory')) || [];
+            const currentBalance = JSON.parse(localStorage.getItem('balance')) || 0;
+            const skinPrice = inventory[index].price;
+
+            // Удаляем скин и обновляем инвентарь
+            inventory.splice(index, 1);
+            localStorage.setItem('inventory', JSON.stringify(inventory));
+
+            // Обновляем баланс
+            const newBalance = currentBalance + skinPrice;
+            saveBalance(newBalance);
+
+            // Перезагружаем инвентарь
+            loadInventory();
+        }
+
+        window.onload = () => {
+            loadBalance();
+            loadInventory();
+        };
     </script>
 </body>
 </html>
